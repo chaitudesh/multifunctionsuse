@@ -1,23 +1,27 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Weather extends CI_Controller {
+class Weather extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('Weather_model');
         $this->load->helper('url');
     }
 
-    public function index() {
+    public function index()
+    {
         $data['weather'] = null;
         $data['error'] = null;
         $this->load->view('weather_view', $data);
     }
 
-    public function fetch() {
+    public function fetch()
+    {
         $city = $this->input->post('city');
-        $weather_data = $this->Weather_model->get_weather($city);
+        $weather_data = $this->Weather_mode->get_weather($city);
 
         if ($weather_data) {
             $data['weather'] = $weather_data;
