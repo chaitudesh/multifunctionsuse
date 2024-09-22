@@ -21,7 +21,7 @@ class Weather extends CI_Controller
     public function fetch()
     {
         $city = $this->input->post('city');
-        $weather_data = $this->Weather_mode->get_weather($city);
+        $weather_data = $this->Weather_model->get_weather($city);
 
         if ($weather_data) {
             $data['weather'] = $weather_data;
